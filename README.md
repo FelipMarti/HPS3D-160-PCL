@@ -15,8 +15,8 @@ HPS-3D160 Solid-State LiDAR (Hypersen Technologies Co., Ltd.) and Point Cloud Li
 
 ## How to Run
 The following steps download, compile, and execute the **hps3d-pcl-visualiser** example
-* `git clone  https://github.com/FelipMarti/HPS-3D160-PCL`
-* `cd HPS-3D160-PCL`
+* `git clone  https://github.com/FelipMarti/HPS3D-160-PCL`
+* `cd HPS3D-160-PCL`
 * `mkdir build`
 * `cd build`
 * `cmake ..`
