@@ -10,6 +10,7 @@ HPS-3D160 Solid-State LiDAR (Hypersen Technologies Co., Ltd.) and Point Cloud Li
 ## Examples
 * **hps3d-pcl-visualiser** real-time visualisation of the 3D point cloud for all the cameras connected
 * **hps3d-pcl-save-heaps-clouds** saves heaps of 3D point clouds in a specific folder
+* **hps3d-pcl-save-clouds** saves all the 3D point clouds in a specific folder. The program requires a path to save the files, the number of the scene, and the timestamp
 * ...
 
 
