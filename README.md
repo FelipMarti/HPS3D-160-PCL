@@ -8,7 +8,7 @@ HPS-3D160 Solid-State LiDAR (Hypersen Technologies Co., Ltd.) and Point Cloud Li
 * HPS-3D160 Solid-State LiDAR [dependencies](https://github.com/hypersen/HPS3D_SDK)
 
 ## Examples
-* **hps3d-pcl-visualiser** real-time visualisation of the 3D point cloud
+* **hps3d-pcl-visualiser** real-time visualisation of the 3D point cloud for all the cameras connected
 * **hps3d-pcl-save-heaps-clouds** saves heaps of 3D point clouds in a specific folder
 * ...
 
