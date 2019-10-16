@@ -126,12 +126,13 @@ int main(int argc, char *argv[])
     for(int i = 0;i<connect_number;i++)
     {
         printf("HPS3D-160 camera number: %d \n",i);
+        // The commented code does not work fine for multiple cameras
         // TODO: Trying to get unique ID for each device
-        printf("    Device name %s \n",handle[i].DeviceName);
-        printf("    Device address %d \n",handle[i].DeviceAddr);
-        Version_t version_t;
-        HPS3D_GetDeviceVersion(&handle[i], &version_t);
-        printf("    Device year %d, month %d, day %d, major %d, minor %d, rev %d \n",version_t.year,version_t.month,version_t.day,version_t.major,version_t.minor,version_t.rev);
+        //printf("    Device name %s \n",handle[i].DeviceName);
+        //printf("    Device address %d \n",handle[i].DeviceAddr);
+        //Version_t version_t;
+        //HPS3D_GetDeviceVersion(&handle[i], &version_t);
+        //printf("    Device year %d, month %d, day %d, major %d, minor %d, rev %d \n",version_t.year,version_t.month,version_t.day,version_t.major,version_t.minor,version_t.rev);
 
         // Before enabling the point cloud data, ensure that the optical compensation enable is enabled, otherwise the correct point cloud result cannot be obtained.
         HPS3D_SetOpticalEnable(&handle[i],true);
@@ -159,6 +160,9 @@ int main(int argc, char *argv[])
 
         ret = HPS3D_SingleMeasurement(&handle[device]);
         if(ret == RET_OK ) {
+
+            // Wait some time (microseconds) before capturing to make sure there are no laser interferences 
+            usleep(500000);
     
             switch(handle[device].RetPacketType)
             {
