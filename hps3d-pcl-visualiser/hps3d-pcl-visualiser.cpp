@@ -211,8 +211,9 @@ int main()
     bunchOfViewersPtr.resize(connect_number);
     for (int i=0;i<connect_number;i++) {
         bunchOfViewersPtr[i]=pcl::visualization::PCLVisualizer::Ptr(new pcl::visualization::PCLVisualizer() );
-        std::string name = "3D Viewer HPS3D-160 Cam " + std::to_string( i + 1 );
-        bunchOfViewersPtr[i]->setWindowName(name.c_str());
+        std::stringstream name;
+        name << "3D Viewer HPS3D-160 Cam " << i+1;
+        bunchOfViewersPtr[i]->setWindowName(name.str());
         bunchOfViewersPtr[i]->setBackgroundColor (0, 0, 0);   // RGB 000->Black
         bunchOfViewersPtr[i]->initCameraParameters();
         bunchOfViewersPtr[i]->setCameraPosition(0, 0, 8000,    0, 0, 0,   0, 0, 0,  0);
@@ -233,9 +234,10 @@ int main()
                 bunchOfViewersPtr[i]->removeAllPointClouds(); 
             
                 // Show point cloud
-                std::string name = "HPS3D Camera " + std::to_string( i + 1 );
-                bunchOfViewersPtr[i]->addPointCloud<pcl::PointXYZ> (bunchOfCloudsPtr[i], name.c_str());
-                bunchOfViewersPtr[i]->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, name.c_str());
+                std::stringstream name;
+                name << "HPS3D Camera " << i+1;
+                bunchOfViewersPtr[i]->addPointCloud<pcl::PointXYZ> (bunchOfCloudsPtr[i], name.str());
+                bunchOfViewersPtr[i]->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, name.str());
 
                 bunchOfViewersPtr[i]->spinOnce (50);
             }
